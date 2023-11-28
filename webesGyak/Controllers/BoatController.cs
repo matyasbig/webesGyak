@@ -9,13 +9,18 @@ namespace webesGyak.Controllers
     public class BoatController : ControllerBase
     {
         [HttpGet]
-        [Route("questions/all")]
-        public IActionResult GetQuestions()
+        [Route("questions/{idx}")]
+        public IActionResult GetQuestion(int idx)
         {
             HajosContext context = new();
-            var questions = from x in context.Questions select x.Question1;
+            var question = 
+                (from x in context.Questions
+                 where x.QuestionId == idx
+                 select x).FirstOrDefault();
 
-            return Ok(questions);
+            if (question == null) return BadRequest("Nincs ilyen sorszámú kérdés");
+
+            return new JsonResult(question);
         }
     }
 }
