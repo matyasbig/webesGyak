@@ -5,6 +5,79 @@
     <title></title>
 </head>
 <body>
+    <div id="outer">
+        <div id="question_text">Question Text</div>
+        <div id="middle">
+            <div id="answers">
+                <div id="answer1" class="answer clickable correct">Answer 1</div>
+                <div id="answer2" class="answer clickable incorrect">Answer 2</div>
+                <div id="answer3" class="answer clickable incorrect">Answer 3</div>
+            </div>
+            <div id="image">
+                <img id="image1" src="https://kzgzdiag426.blob.core.windows.net/netcore/teszt-0050.jpg" />
+            </div>
+        </div>
+        <div id="controller">
+            <div class="button clickable">Back</div>
+            <div class="button clickable">Forward</div>
+        </div>
+    </div>
 
+    <style>
+        html, body {
+            height: 100%;
+        }
+
+        div {
+            margin: 10px;
+            border: 1px solid black;
+        }
+
+        #outer {
+            display: flex;
+            height: 100%;
+            flex-direction: column;
+        }
+
+        #question_text {
+
+        }
+
+        #middle {
+            display: flex;
+            flex-direction: row;
+            flex-grow: 1;
+        }
+
+        #answers {
+            flex-grow: 1;
+            flex-shrink: 1;
+        }
+
+        #image {
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        #controller {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .answer {
+
+        }
+
+        .button {
+            padding: 20px;
+            width: 80px;
+        }
+
+        .clickable:hover {
+            background-color: black;
+            color: white;
+        }
+    </style>
 </body>
 </html>
