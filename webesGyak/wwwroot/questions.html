@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div id="result"></div>
+
+    <script>
+        fetch('/questions/all').then(r => r.json()).then(d => write(d));
+
+        function write(list) {
+            for (var i = 0; i < list.length; i++) {
+                let newItem = document.createElement("div");
+                newItem.innerText = list[i];
+                document.getElementById("result").appendChild(newItem);
+            }
+        }
+    </script>
+</body>
+</html>
